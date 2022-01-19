@@ -3,13 +3,15 @@ Author: 饕餮
 Date: 2022-01-17 17:24:26
 version: 
 LastEditors: 饕餮
-LastEditTime: 2022-01-19 16:00:19
+LastEditTime: 2022-01-19 17:15:03
 Description: file content
 '''
+import requests
+requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
+
 import json
 from sangfor_af_sdk.Object.Auth import LoginResponseObject
 from sangfor_af_sdk.Common.BaseRequest import BaseRequest
-import requests
 class SdkClient(object):
     def __init__(self,apiUser,apiPwd,apiAddr):
         self._apiUser = apiUser
