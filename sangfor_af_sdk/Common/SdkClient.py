@@ -3,7 +3,7 @@ Author: 饕餮
 Date: 2022-01-17 17:24:26
 version: 
 LastEditors: 饕餮
-LastEditTime: 2022-01-19 14:30:54
+LastEditTime: 2022-01-19 16:00:19
 Description: file content
 '''
 import json
@@ -26,11 +26,18 @@ class SdkClient(object):
         except ValueError as e:
             return False
         return True
+
+    def _isJsonStr(self,data):
+        try:
+            json_str = json.dumps(data)
+        except ValueError as e:
+            return False
+        return True
     
     def _GetResponse(self,rUrl,rData,rType='GET'):
         rUrl = self._apiAddr + rUrl
         # json转字符串
-        if self._isJson(rData):
+        if self._isJsonStr(rData):
             rData = json.dumps(rData)
         #发送亲求
         if rType == 'GET':

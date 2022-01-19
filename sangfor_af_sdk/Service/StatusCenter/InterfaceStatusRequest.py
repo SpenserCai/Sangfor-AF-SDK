@@ -3,10 +3,11 @@ Author: 饕餮
 Date: 2022-01-19 13:48:00
 version: 
 LastEditors: 饕餮
-LastEditTime: 2022-01-19 14:36:04
+LastEditTime: 2022-01-19 15:53:44
 Description: file content
 '''
 from sangfor_af_sdk.Common.BaseRequest import BaseRequest
+from sangfor_af_sdk.Object.InterfaceStatus import InterfaceStatusList
 class InterfaceStatusRequest(BaseRequest):
     def __init__(self):
         super().__init__("/namespaces/public/interfacestatus/", "GET")
@@ -30,5 +31,5 @@ class InterfaceStatusRequest(BaseRequest):
         self.requestData = value
 
     def GetResponseObject(self, responseData):
-        # 返回该接口对象
-        pass
+        interfaceList = InterfaceStatusList(responseData)
+        return interfaceList
