@@ -3,16 +3,16 @@ Author: 饕餮
 Date: 2022-01-20 09:34:50
 version: 
 LastEditors: 饕餮
-LastEditTime: 2022-01-20 09:49:50
+LastEditTime: 2022-01-20 10:37:44
 Description: 获取cpu使用率变化曲线数据
 '''
 from sangfor_af_sdk.Common.BaseRequest import BaseRequest
-from sangfor_af_sdk.Object.CpuUsages import CpuUsages
+from sangfor_af_sdk.Object.MemoryUsages import MemoryUsages
 
 
-class CpuSagesRequest(BaseRequest):
+class MemoryUsagesRequest(BaseRequest):
     def __init__(self):
-        super().__init__("/namespaces/@namespace/cpuusages", "GET")
+        super().__init__("/namespaces/public/memoryusages", "GET")
 
     @property
     def TimeFilter(self):
@@ -23,5 +23,5 @@ class CpuSagesRequest(BaseRequest):
         self.SetValue("timeFilter",value)
 
     def GetResponseObject(self, responseData):
-        cpuUsagesList = CpuUsages(responseData)
+        cpuUsagesList = MemoryUsages(responseData)
         return cpuUsagesList
