@@ -3,7 +3,7 @@ Author: 饕餮
 Date: 2022-01-19 13:48:00
 version: 
 LastEditors: 饕餮
-LastEditTime: 2022-01-19 15:53:44
+LastEditTime: 2022-01-19 17:51:52
 Description: file content
 '''
 from sangfor_af_sdk.Common.BaseRequest import BaseRequest
@@ -21,14 +21,6 @@ class InterfaceStatusRequest(BaseRequest):
         urlQuery = self.requestUrl.split('/')
         urlQuery[-1] = value
         self.requestUrl = "/".join(urlQuery)
-
-    @property
-    def RequestData(self):
-        return self.requestData
-
-    @RequestData.setter
-    def RequestData(self,value):
-        self.requestData = value
 
     def GetResponseObject(self, responseData):
         interfaceList = InterfaceStatusList(responseData)

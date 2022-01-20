@@ -3,7 +3,7 @@ Author: 饕餮
 Date: 2022-01-19 15:25:09
 version: 
 LastEditors: 饕餮
-LastEditTime: 2022-01-19 15:52:44
+LastEditTime: 2022-01-20 09:49:03
 Description: 接口状态信息
 '''
 from typing import List
@@ -119,8 +119,6 @@ class InterfaceStatus(BaseObject):
         return tmpObject
 
 class InterfaceStatusList(BaseResponseObejct):
-    def __init__(self, jsonData):
-        super().__init__(jsonData)
 
     @property
     def StatusList(self) -> List[InterfaceStatus]:
